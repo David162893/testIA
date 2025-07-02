@@ -15,7 +15,7 @@ PROMPT_PATH = r"C:\Users\drodriguez\Desktop\Scripts_py\prompt.txt"
 OUTPUT_PATH = "factura_processed.xml"
 LOG_PATH = "error.log"
 
-API_KEY = "sk-328e19cd11444733bd4f3ce6a30c3be1"
+API_KEY = ""
 BASE_URL = "https://api.deepseek.com"
 
 # --------------------------------------------------
