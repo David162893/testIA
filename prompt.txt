@@ -1,0 +1,86 @@
+Convierte este documento PDF de factura a un archivo XML estructurado con los siguientes requisitos. Devuelve ÚNICAMENTE el XML completo sin ninguna interrupcion sin comentarios, explicaciones ni texto adicional:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Registro_factura_documento>
+  <Registro_factura sid="" observaciones="" nombre="" msc="">
+    <Empresa/>
+    <Tipo_de_libro_registro/>
+    <Tipo_de_documento/>
+    <Clase/>
+    <Clase_de_impuesto/>
+    <N_Serie/>
+    <N__de_Factura/>
+    <N__de_Registro/>
+    <Fecha_documento/>
+    <Fecha_de_recepcion/>
+    <Razon_social_expedidor/>
+    <CIF_Expedidor/>
+    <Total_bruto/>
+    <Importe_Dto/>
+    <Total_impuestos/>
+    <Total_factura/>
+    <Identificacion_bien/>
+    <Forma_de_pago/>
+    <Importe_retencion/>
+    <Concepto_retencion/>
+    <Observaciones_1/>
+    <Observaciones_2/>
+
+    <Bases_imponibles_lista>
+      <fila posicion="">
+        <Base_imponible/>
+        <percen__tipo_impositivo/>
+        <Importe_impuesto/>
+        <percen__Re/>
+        <Importe_Re/>
+        <Total_impuestos_base/>
+      </fila>
+    </Bases_imponibles_lista>
+
+    <Vencimientos_lista>
+      <fila posicion="">
+        <Fecha_vencimiento/>
+        <Importe/>
+        <Cuenta_de_pago/>
+      </fila>
+    </Vencimientos_lista>
+
+    <Desglose_por_cuenta_PGC_lista/>
+
+    <Lista_de_albaranes_lista>
+      <fila posicion="">
+        <N_Albaran/>
+        <Fecha/>
+      </fila>
+    </Lista_de_albaranes_lista>
+
+    <Detalle_valores_albaran_lista>
+      <fila posicion="">
+        <Referencia/>
+        <Denominacion/>
+        <Cantidad/>
+        <Precio/>
+        <Dto/>
+        <Importe/>
+        <N_Albaran/>
+        <Fecha/>
+        <Codigo_obra/>
+        <Pedido_asociado/>
+        <percen__tipo_impositivo/>
+      </fila>
+    </Detalle_valores_albaran_lista>
+  </Registro_factura>
+</Registro_factura_documento>
+
+Reglas estrictas de conversión:
+1. Agrupar todos los ítems bajo su albarán correspondiente
+2. Extraer metadatos completos (fechas, referencias, códigos, precios)
+3. Valores numéricos con punto decimal (ej. 350.58)
+4. Campos inexistentes en PDF: dejar vacíos (<Campo/>)
+5. Valores de fecha con este formato: YYYY-MM-DD
+6. Procesar todas las páginas manteniendo la unidad de cada albarán
+7. Estructura de salida:
+   - Encoding UTF-8
+   - Tabulaciones para anidación
+   - Sin saltos de línea innecesarios
+   - Sin marcas de código o texto explicativo
